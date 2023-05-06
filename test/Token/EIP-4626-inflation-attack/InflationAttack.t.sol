@@ -2,7 +2,7 @@
 pragma solidity ^0.8.13;
 
 import "forge-std/Test.sol";
-import "../src/Counter.sol";
+import "src/Token/EIP-4626-inflation-attack";
 
 contract CounterTest is Test {
     Counter public counter;
