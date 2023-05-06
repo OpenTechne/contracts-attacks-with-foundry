@@ -871,8 +871,8 @@
       }
     },
     "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol": {
-      "lastModificationDate": 1683388223132,
-      "contentHash": "cda07f3ac702b0b4b9100e497dd6488e",
+      "lastModificationDate": 1683389027982,
+      "contentHash": "ec06ddb3d7423f8b666d6933bcc7925f",
       "sourceName": "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
       "solcConfig": {
         "settings": {
@@ -1167,8 +1167,8 @@
       }
     },
     "src/Token/EIP-4626-inflation-attack/Asset.sol": {
-      "lastModificationDate": 1683375519320,
-      "contentHash": "2d5c113ece987485addb12fac9ba4ec2",
+      "lastModificationDate": 1683389019302,
+      "contentHash": "1f53b85919c7bfab1049868b3ebcbce1",
       "sourceName": "src/Token/EIP-4626-inflation-attack/Asset.sol",
       "solcConfig": {
         "settings": {
@@ -1212,8 +1212,8 @@
       }
     },
     "src/Token/EIP-4626-inflation-attack/ERC4626-release-v4-8.sol": {
-      "lastModificationDate": 1683374810600,
-      "contentHash": "ccaf9cdc2d1941f6db7dceb104d46d66",
+      "lastModificationDate": 1683389019306,
+      "contentHash": "fe74249b0d5c6a0def65f21ea4d18ea7",
       "sourceName": "src/Token/EIP-4626-inflation-attack/ERC4626-release-v4-8.sol",
       "solcConfig": {
         "settings": {
@@ -1261,10 +1261,10 @@
         }
       }
     },
-    "src/Token/EIP-4626-inflation-attack/Valout.sol": {
-      "lastModificationDate": 1683388331505,
-      "contentHash": "47c0bf120266c6d5b67b45cf4cd4203a",
-      "sourceName": "src/Token/EIP-4626-inflation-attack/Valout.sol",
+    "src/Token/EIP-4626-inflation-attack/Vault.sol": {
+      "lastModificationDate": 1683391492117,
+      "contentHash": "a43e0c8971f48ef98fe12d1d6a3b4437",
+      "sourceName": "src/Token/EIP-4626-inflation-attack/Vault.sol",
       "solcConfig": {
         "settings": {
           "optimizer": {
@@ -1307,15 +1307,15 @@
       ],
       "versionRequirement": "^0.8.0",
       "artifacts": {
-        "Valout": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "Valout.sol/Valout.json"
+        "Vault": {
+          "0.8.17+commit.8df45f5f.Linux.gcc": "Vault.sol/Vault.json"
         }
       }
     },
-    "src/Token/EIP-4626-inflation-attack/VulnerableValout.sol": {
-      "lastModificationDate": 1683375531720,
-      "contentHash": "42224e89ab2936b416b5a7ed7249933e",
-      "sourceName": "src/Token/EIP-4626-inflation-attack/VulnerableValout.sol",
+    "src/Token/EIP-4626-inflation-attack/VulnerableVault.sol": {
+      "lastModificationDate": 1683391762815,
+      "contentHash": "312e1160ebc267db37cada37be8e1354",
+      "sourceName": "src/Token/EIP-4626-inflation-attack/VulnerableVault.sol",
       "solcConfig": {
         "settings": {
           "optimizer": {
@@ -1358,15 +1358,15 @@
       ],
       "versionRequirement": "^0.8.0",
       "artifacts": {
-        "VulnerableValout": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "VulnerableValout.sol/VulnerableValout.json"
+        "VulnerableVault": {
+          "0.8.17+commit.8df45f5f.Linux.gcc": "VulnerableVault.sol/VulnerableVault.json"
         }
       }
     },
-    "test/Token/EIP-4626-inflation-attack/HighPrecisionValoutValoutEmpty.sol": {
-      "lastModificationDate": 1683388648203,
-      "contentHash": "94c21305a32804b0bcfd75423e08f207",
-      "sourceName": "test/Token/EIP-4626-inflation-attack/HighPrecisionValoutValoutEmpty.sol",
+    "test/Token/EIP-4626-inflation-attack/HighPrecisionVaultEmpty.sol": {
+      "lastModificationDate": 1683391669190,
+      "contentHash": "ad10d8acbec7ca6102cca56fa7051dae",
+      "sourceName": "test/Token/EIP-4626-inflation-attack/HighPrecisionVaultEmpty.sol",
       "solcConfig": {
         "settings": {
           "optimizer": {
@@ -1425,20 +1425,20 @@
         "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
         "src/Token/EIP-4626-inflation-attack/Asset.sol",
         "src/Token/EIP-4626-inflation-attack/ERC4626-release-v4-8.sol",
-        "src/Token/EIP-4626-inflation-attack/Valout.sol",
-        "src/Token/EIP-4626-inflation-attack/VulnerableValout.sol"
+        "src/Token/EIP-4626-inflation-attack/Vault.sol",
+        "src/Token/EIP-4626-inflation-attack/VulnerableVault.sol"
       ],
       "versionRequirement": "^0.8.13",
       "artifacts": {
         "Attack": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "HighPrecisionValoutValoutEmpty.sol/Attack.json"
+          "0.8.17+commit.8df45f5f.Linux.gcc": "HighPrecisionVaultEmpty.sol/Attack.json"
         }
       }
     },
-    "test/Token/EIP-4626-inflation-attack/VulnerableValoutEmptyAttack.t.sol": {
-      "lastModificationDate": 1683385639263,
-      "contentHash": "e4651e14cd4901d71ce54823ea41fce2",
-      "sourceName": "test/Token/EIP-4626-inflation-attack/VulnerableValoutEmptyAttack.t.sol",
+    "test/Token/EIP-4626-inflation-attack/VulnerableVaultEmptyAttack.t.sol": {
+      "lastModificationDate": 1683391666770,
+      "contentHash": "3b7cf22fd03e3be2f2802e64a2fad317",
+      "sourceName": "test/Token/EIP-4626-inflation-attack/VulnerableVaultEmptyAttack.t.sol",
       "solcConfig": {
         "settings": {
           "optimizer": {
@@ -1497,20 +1497,20 @@
         "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
         "src/Token/EIP-4626-inflation-attack/Asset.sol",
         "src/Token/EIP-4626-inflation-attack/ERC4626-release-v4-8.sol",
-        "src/Token/EIP-4626-inflation-attack/Valout.sol",
-        "src/Token/EIP-4626-inflation-attack/VulnerableValout.sol"
+        "src/Token/EIP-4626-inflation-attack/Vault.sol",
+        "src/Token/EIP-4626-inflation-attack/VulnerableVault.sol"
       ],
       "versionRequirement": "^0.8.13",
       "artifacts": {
         "Attack": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "VulnerableValoutEmptyAttack.t.sol/Attack.json"
+          "0.8.17+commit.8df45f5f.Linux.gcc": "VulnerableVaultEmptyAttack.t.sol/Attack.json"
         }
       }
     },
-    "test/Token/EIP-4626-inflation-attack/VulnerableValoutLiquidAttack.t.sol": {
-      "lastModificationDate": 1683385916692,
-      "contentHash": "c71a92bac8547ae9cbb6f5544e6ef829",
-      "sourceName": "test/Token/EIP-4626-inflation-attack/VulnerableValoutLiquidAttack.t.sol",
+    "test/Token/EIP-4626-inflation-attack/VulnerableVaultLiquidAttack.t.sol": {
+      "lastModificationDate": 1683391654098,
+      "contentHash": "009d0d089cf124883b9dade746b79052",
+      "sourceName": "test/Token/EIP-4626-inflation-attack/VulnerableVaultLiquidAttack.t.sol",
       "solcConfig": {
         "settings": {
           "optimizer": {
@@ -1569,13 +1569,13 @@
         "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
         "src/Token/EIP-4626-inflation-attack/Asset.sol",
         "src/Token/EIP-4626-inflation-attack/ERC4626-release-v4-8.sol",
-        "src/Token/EIP-4626-inflation-attack/Valout.sol",
-        "src/Token/EIP-4626-inflation-attack/VulnerableValout.sol"
+        "src/Token/EIP-4626-inflation-attack/Vault.sol",
+        "src/Token/EIP-4626-inflation-attack/VulnerableVault.sol"
       ],
       "versionRequirement": "^0.8.13",
       "artifacts": {
         "Attack": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "VulnerableValoutLiquidAttack.t.sol/Attack.json"
+          "0.8.17+commit.8df45f5f.Linux.gcc": "VulnerableVaultLiquidAttack.t.sol/Attack.json"
         }
       }
     }

