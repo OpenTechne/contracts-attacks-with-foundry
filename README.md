@@ -9,7 +9,7 @@ level of verbosity:
 - -vvv: Test will prompt only logs.
 - -vvvv: Test will prompt logs and execution traces.
 
-## attacks available
+## Available attacks
 
 | Category          | Name                          |
 |-------------------|-------------------------------|
